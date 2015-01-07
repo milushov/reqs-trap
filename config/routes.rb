@@ -6,7 +6,10 @@ Rails.application.routes.draw do
       get 'traps', to: 'traps#index'
       match ':trap_id', to: 'traps#create', via: [:get, :post, :put, :patch, :delete]
     end
-    resources :requests, only: [:index, :show]
+
+    resources :requests, only: [:index, :show] do
+      get 'stream', on: :collection
+    end
   end
 
   root 'traps#info'
