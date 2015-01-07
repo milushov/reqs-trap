@@ -10,5 +10,8 @@ html
     = csrf_meta_tags
 
   body
-    = yield
+    = render 'shared/navigation'
+
+    .container.app
+      = yield
 
