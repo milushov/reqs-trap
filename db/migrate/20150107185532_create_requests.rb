@@ -2,6 +2,7 @@ class CreateRequests < ActiveRecord::Migration
   def change
     create_table :requests do |t|
       t.text :body
+      t.text :raw
       t.references :trap, index: true
 
       t.timestamps null: false

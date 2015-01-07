@@ -1,0 +1,12 @@
+.panel.panel-default
+  .panel-heading
+    = link_to [@trap, req] do
+      = req.title
+
+  .panel-body
+    table.table
+      - req.json_body.except('cookies', 'headers').each do |key, val|
+        tr
+          td = key
+          td = val
+

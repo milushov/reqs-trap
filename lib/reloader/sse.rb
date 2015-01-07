@@ -10,9 +10,8 @@ module Reloader
       options.each do |k,v|
         @io.write "#{k}: #{v}\n"
       end
-      json_object = object.to_json
 
-      @io.write "data: #{json_object}\n\n"
+      @io.write "data: #{object}\n\n"
     end
 
     def close

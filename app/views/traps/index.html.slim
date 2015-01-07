@@ -1,2 +1,14 @@
-h1 Traps#index
-p Find me in app/views/traps/index.html.slim
+h1 All end points
+
+.row.traps-create
+  = form_for Trap.new do |f|
+    .col-xs-4.col-sm-4
+      = f.text_field :secure_id, class: 'form-control', placeholder: 'secure_id'
+    .col-xs-3.col-sm-3
+      = f.submit 'create new one', class: 'btn btn-primary'
+
+- @traps.each do |trap|
+  div.list-group
+    = link_to [trap, :requests], class: 'list-group-item' do
+      = trap.secure_id
+

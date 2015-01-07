@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20150107185532) do
 
   create_table "requests", force: :cascade do |t|
     t.text     "body"
+    t.text     "raw"
     t.integer  "trap_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

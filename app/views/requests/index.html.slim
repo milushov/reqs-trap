@@ -1,5 +1,3 @@
 .requests-list
-  - @requests.each do |request|
-    .well
-      = link_to [@trap, request] do
-        = JSON.parse(request.body)['date']
+  - @requests.each do |req|
+    = render partial: 'request.html.slim', locals: {req: req}

@@ -6,11 +6,8 @@ $ ->
     source = new EventSource("#{location.pathname}/stream")
 
     source.addEventListener 'results', (e) ->
-      console.log 'Received a message:', e.data
-      item = $.parseJSON(e.data)
-      itemEl = $("<div class='well'>#{item.id}</div>")
-      itemEl.hide().prependTo('.requests-list').fadeIn('slow')
+      itemEl = $(e.data)
+      itemEl.hide().prependTo('.requests-list').fadeIn(400)
 
     source.addEventListener 'finished', (e) ->
-      console.log 'Close:', e.data
       source.close()

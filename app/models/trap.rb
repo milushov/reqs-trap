@@ -15,7 +15,7 @@ class Trap < ActiveRecord::Base
 
   def set_secure_id
     salt = "super-salt-#{rand(1e10)}"
-    id = Digest::MD5.hexdigest([salt, Time.now].join)[0..6]
-    self.secure_id = id
+    sid = Digest::MD5.hexdigest([salt, Time.now].join)[0..6]
+    self.secure_id = [self.secure_id, sid].join('-')
   end
 end
