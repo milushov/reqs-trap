@@ -2,7 +2,7 @@ class TrapsController < ApplicationController
   def info
   end
 
-  def show
+  def create
   end
 
   def index
