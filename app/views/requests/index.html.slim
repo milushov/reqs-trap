@@ -1,2 +1,5 @@
-h1 Requests#index
-p Find me in app/views/requests/index.html.slim
+.requests-list
+  - @requests.each do |request|
+    .well
+      = link_to [@trap, request] do
+        = JSON.parse(request.body)['date']
