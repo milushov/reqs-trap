@@ -1,12 +1,34 @@
+- unless defined?(is_full)
+  - is_full = false
+
 .panel.panel-default
   .panel-heading
     = link_to [@trap, req] do
       = req.title
 
+  /*some crazy sheet*/
   .panel-body
     table.table
-      - req.json_body.except('cookies', 'headers').each do |key, val|
-        tr
-          td = key
-          td = val
+      - if is_full
+        - req.json_body.each do |key, val|
+          - if key == 'headers'
+            - headers = val
+            tr
+              td = key
+              td
+                table.table
+                  - headers.each do |key, val|
+                    tr
+                      td = key
+                      td = val
+
+          - else
+            tr
+              td = key
+              td = val
+      - else
+        - req.json_body.except('cookies', 'headers').each do |key, val|
+          tr
+            td = key
+            td = val
 

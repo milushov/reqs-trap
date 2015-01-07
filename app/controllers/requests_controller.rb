@@ -20,7 +20,8 @@ class RequestsController < ApplicationController
 
       begin
         loop do
-          requests = @trap.requests.where('created_at >= ?', Time.now - CHECK_TIME.seconds)
+          requests = @trap.requests
+            .where('created_at >= ?', Time.now - CHECK_TIME.seconds)
 
           if requests.any?
             resp = requests.map{ |req| render_request(req) }.join('')
