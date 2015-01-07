@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'requests/index'
+
+  get 'requests/show'
+
+  get 'traps/info'
+
+  get 'traps/show'
+
+  get 'traps/index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
